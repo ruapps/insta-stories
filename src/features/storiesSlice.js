@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchStories = createAsyncThunk(
   "stories/fetchStories",
   async () => {
-    const res = await fetch("/stories.json");
+    const res = await fetch(import.meta.env.BASE_URL + "stories.json");
     if (!res.ok) throw new Error("Failed to load stories");
     return res.json();
   }
